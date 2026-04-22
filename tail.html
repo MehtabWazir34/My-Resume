@@ -4,44 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
     <title>Trying Tailwind</title>
+    <style>
+        /* Custom styles for menu animation and positioning */
+        #menuItems {
+            transition: transform 0.3s ease-in-out;
+        }
+        @media (max-width: 440px){
+            #menuItems li{
+                width: 100%;
+            }
+        }
+        @media (max-width: 640px) {
+            #menuItems{
+                max-width: 100vw;
+                height: 80vh;
+            }
+            #menuItems li{
+                margin: 12px auto;
+            }
+            /* #menuItems {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 50vw;
+                background-color: rgba(107, 33, 168, 0.95); 
+                transform: translateX(100%);
+                padding: 1rem;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            }
+            #menuItems.active {
+                transform: translateX(0);
+            } */
+        }
+    </style>
 </head>
 <body>
-    <!-- <div class="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
-        <img class="size-12 shrink-0" src="/img/logo.svg" alt="ChitChat Logo" />
-        <div>
-          <div class="text-xl font-medium text-black dark:text-white">ChitChat</div>
-          <p class="text-gray-500 dark:text-gray-400">You have a new message!</p>
-        </div>
-      </div> -->
-
-      <nav class="bg-purple-500 p-2 text-white flex justify-between items-center">
+    <!-- Header Navbar -->
+    <nav class="bg-purple-500 p-4 text-white flex justify-between items-center">
         <div class="logo">
-          <img src="eagle.png" alt="Just logo" class="w-20">
+            <img src="eagle.png" alt="Logo" class="w-16 sm:w-20 object-contain" onerror="this.src='https://via.placeholder.com/80?text=Logo';">
         </div>
-        <ul class="flex justify-around gap-5 ">
-          <li class="cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Home</li>
-          <li class="cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">About</li>
-          <li class="cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Services</li>
-          <li class="cursor-pointer rounded-2xl p-1 w-full bg-gray-600 hover:text-yellow-300">Contact</li>
+        <ul id="menuItems" class="hidden sm:flex  justify-around gap-5 ">
+            <li class="cursor-pointer rounded-2xl py-2 px-4 text-center bg-gray-600 hover:bg-gray-700 hover:text-yellow-300 transition-colors my-2">Home</li>
+            <li class="cursor-pointer rounded-2xl py-2 px-4 text-center bg-gray-600 hover:bg-gray-700 hover:text-yellow-300 transition-colors my-2">About</li>
+            <li class="cursor-pointer rounded-2xl py-2 px-4 text-center bg-gray-600 hover:bg-gray-700 hover:text-yellow-300 transition-colors my-2">Services</li>
+            <li class="cursor-pointer rounded-2xl py-2 px-4 text-center bg-gray-600 hover:bg-gray-700 hover:text-yellow-300 transition-colors my-2">Contact</li>
         </ul>
-      </nav>
+        <button onclick="menuToggle()" title="Show menu" class="mx-4 sm:hidden p-2 rounded-full ansition-colors">
+            <i id="menuIcon" class="fa-solid fa-bars text-white bg-gray-600 p-2 rounded-full font-bold border-white border"></i>
+        </button>
 
-      <section class="items-center w-full h-1/3 bg-blue-200 p-4 gap-3">
-        <div class="main flex justify-around items-center gap-4">
-          <div class="w-fit">
-            <img src="me.png" alt="mehtabwazir.com" class="rounded-xl w-full">
-          </div>
-          <div class="about">
-            <h2 class="text-2xl font-bold">Hi, its me <br> Mehtab Wazir</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corrupti explicabo dicta, similique minima ratione est in, possimus animi sed maiores aliquid cum, laudantium facilis veniam quidem. Assumenda provident cum perferendis!</p>
-          </div>
+        <!-- nav02 -->
+        <div id="menuBar" class="hidden sm:hidden fixed inset-0 p-4 bg-purple-500 ">
+            <div class="flex justify-between ">
+            
+                    <img src="eagle.png" alt="Logo" class="w-16 sm:w-20 object-contain" onerror="this.src='https://via.placeholder.com/80?text=Logo';">
+                
+                <button onclick="menuToggle()"" title="Hide menu" class="mx-4 sm:hidden p-2 transition-colors">
+                    <i id="menuX" class="hidden bg-gray-600 rounded-full p-2 fa-solid fa-xmark text-white font-bold border border-white"></i>
+                </button>
+            </div>
+
+            <ul id="menuItems" class="flex flex-col justify-start bg-white p-12 rounded-2xl h-full ">
+                <li class=" w-1/2 cursor-pointer rounded-2xl py-2 px-4 text-center bg-gray-600 hover:bg-gray-700 hover:text-yellow-300 transition-colors my-2">Home</li>
+                <li class="w-1/2 cursor-pointer rounded-2xl py-2 px-4 text-center bg-gray-600 hover:bg-gray-700 hover:text-yellow-300 transition-colors my-2">About</li>
+                <li class="w-1/2 cursor-pointer rounded-2xl py-2 px-4 text-center bg-gray-600 hover:bg-gray-700 hover:text-yellow-300 transition-colors my-2">Services</li>
+                <li class="w-1/2 cursor-pointer rounded-2xl py-2 px-4 text-center bg-gray-600 hover:bg-gray-700 hover:text-yellow-300 transition-colors my-2">Contact</li>
+            </ul>
         </div>
-        <div class="buttons flex justify-around items-center">
-          <button class="bg-purple-600 p-2 rounded-xl cursor-pointer text-white my-2">Get me hire</button>
-          <button class="bg-purple-600 p-2 rounded-xl cursor-pointer text-white my-2">Check my work</button>
+    </nav>
+    
+    <section class="w-full bg-blue-200 p-6 sm:p-8 flex flex-col items-center gap-6">
+        <div class="main flex flex-col sm:flex-row justify-center sm:justify-around items-center gap-6">
+            <div class="w-48 sm:w-64">
+                <img src="me.png" alt="Mehtab Wazir" class="rounded-xl w-full object-cover" onerror="this.src='https://via.placeholder.com/200?text=Me';">
+            </div>
+            <div class="about max-w-md text-center sm:text-left">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-2">Hi, I'm Mehtab Wazir</h2>
+                <p class="text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti explicabo dicta, similique minima ratione est in, possimus animi sed maiores aliquid cum, laudantium facilis veniam quidem. Assumenda provident cum perferendis!</p>
+                <div class="buttons flex flex-col sm:flex-row justify-center gap-4 my-2">
+                    <button class="bg-purple-600 p-3 rounded-xl cursor-pointer text-white hover:bg-purple-700 transition-colors">Get me hired</button>
+                    <button class="bg-purple-600 p-3 rounded-xl cursor-pointer text-white hover:bg-purple-700 transition-colors">Check my work</button>
+                </div>
+            </div>
         </div>
-      </section>
+        
+    </section>
+
+    <script>
+        const menuBar = document.getElementById("menuBar");
+        function menuToggle(){
+        menuBar.classList.toggle('hidden');
+    }
+        // const menuBar = document.getElementById("menuBar");
+        // const menuItems = document.getElementById("menuItems");
+        // const menuIcon = document.getElementById("menuIcon");
+
+        // menuBar.addEventListener("click", () => {
+        //     menuItems.classList.toggle("active");
+        //     const isActive = menuItems.classList.contains("active");
+        //     // Toggle menu visibility and icon
+        //     menuItems.classList.toggle("hidden", !isActive);
+        //     menuBar.classList.toggle("fa-solid fa-bars", !isActive);
+        //     menuBar.classList.toggle("fa-solid fa-xmark", isActive);
+        //     menuBar.title = isActive ? "Show menu" : "HIde menu";
+        //     // menuBar.title = "Hide menu";
+        // });
+
+        // // Close menu when clicking outside on mobile
+        // document.addEventListener("click", (e) => {
+        //     if (!menuBar.contains(e.target) && !menuItems.contains(e.target) && menuItems.classList.contains("active")) {
+        //         menuItems.classList.remove("active");
+        //         menuItems.classList.add("hidden");
+        //         menuIcon.classList.add("fa-bars");
+        //         menuIcon.classList.remove("fa-xmark");
+        //         // menuBar.title = "Show menu";
+        //     }
+        // });
+    </script>
 </body>
 </html>

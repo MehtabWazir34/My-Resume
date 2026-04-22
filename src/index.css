@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0f172a;     /* deep blue-black */
+  --color-secondary: #1e293b;   /* card background */
+  --color-accent: #f472b6;      /* pink */
+  --color-highlight: #fb7185;   /* red-pink */
+}
