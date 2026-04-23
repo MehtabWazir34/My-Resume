@@ -1,9 +1,9 @@
 import me from './assets/me.png'
-import { BsFacebook, BsGithub, BsInstagram, BsLinkedin } from 'react-icons/bs'
+import { BsChat, BsFacebook, BsGithub, BsInbox, BsInstagram, BsLinkedin, BsMailbox, BsMailbox2, BsVoicemail, BsWhatsapp } from 'react-icons/bs'
 import { motion } from 'framer-motion'
 import { FaCss3Alt, FaHtml5, FaJs, FaReact } from 'react-icons/fa'
 import { SiExpress, SiMongodb, SiNodedotjs, SiTailwindcss } from 'react-icons/si'
-import { BiSolidVideoRecording } from 'react-icons/bi'
+import { BiSolidMessage, BiSolidVideoRecording } from 'react-icons/bi'
 import  js from './assets/01.png'
 import  wts from './assets/02.png'
 import  bs from './assets/bs.png'
@@ -47,22 +47,23 @@ function App() {
         {/* HEADER */}
         <header className="flex justify-between items-center px-4 py-3 border-b border-gray-700">
           <div className='grid'>
-          <div className='flex gap-1 justify-center -mt-4'>
-          <div className='rounded-full w-3 h-3 bg-yellow-500'>
+          <div className='gap-1 justify-center -mt-4 flex'>
+          <div className='rounded-full w-3 h-3 bg-yellow-500 animate-pulse duration-150'>
           </div>
-          <div className='rounded-full w-3 h-3 bg-red-500'>
+          <div className='rounded-full w-3 h-3 bg-red-500 animate-pulse duration-250'>
           </div>
-          <div className='rounded-full w-3 h-3 bg-blue-500'>
+          <div className='rounded-full w-3 h-3 bg-blue-500 animate-pulse duration-200'>
           </div>
           </div>
-          <h2 className="text-xl font-semibold tracking-wide">WAZIR</h2>
+         
+          <h2 className="text-xl font-semibold tracking-wide font-heading animate-pulse text-accent">WAZIR</h2>
           </div>
 
           <nav>
-            <ul className="flex gap-6 text-sm md:text-base">
-              <li className="hover:text-accent cursor-pointer">About</li>
-              <li id='projects' className="hover:text-accent cursor-pointer">Projects</li>
-              <li id='contact' className="hover:text-accent cursor-pointer">Contact</li>
+            <ul className="flex gap-6 text-sm md:text-base font-body">
+              <li className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">About</li>
+              <li id='projects' className= "duration-200 transition hover:scale-105 hover:text-accent cursor-pointer">Projects</li>
+              <li id='contact' className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">Contact</li>
             </ul>
           </nav>
         </header>
@@ -89,25 +90,35 @@ function App() {
             animate={{opacity:1, x:0}} 
             className="w-full md:w-1/2"
           >
-            <h2 className="text-2xl md:text-3xl font-bold">
-              Hi, it's <span className="text-highlight">Mehtab Wazir</span>
+            <h2 className="text-2xl md:text-3xl font-bold font-heading">
+              Hi, it's <span className="text-highlight tracking-widest">Mehtab Wazir</span>
             </h2>
 
-            <h3 className="text-lg text-gray-300 mt-1">Web Developer</h3>
+            <h3 className="text-xl text-gray-300 mt-1 font-body">Web Developer</h3>
 
-            <p className="text-gray-400 mt-3">
+            <p className="text-gray-400 text-lg mt-3 font-body">
               I build modern responsive systems in the form of web applications with clean UI, performance, and strong user experience.
             </p>
 
             {/* SOCIAL */}
             <div className="flex gap-4 mt-4 text-xl">
-              <BsGithub className="hover:text-accent cursor-pointer transition"/>
-              <BsLinkedin className="hover:text-accent cursor-pointer transition"/>
-              <BsFacebook className="hover:text-accent cursor-pointer transition"/>
-              <BsInstagram className="hover:text-accent cursor-pointer transition"/>
+               <a target='_blank' href="https://github.com/MehtabWazir34">
+              <BsGithub className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
+            </a>
+            <a target='_blank' href="https://www.linkedin.com/in/mehtab-wazir-1429bb247/?skipRedirect=true"><BsLinkedin className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
+            </a>
+            <a target='_blank' href="https://www.facebook.com/mehtabwazir34">
+              <BsFacebook className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
+            </a>
+              <a target='_blank' href="https://www.instagram.com/_wazirguy/">
+                <BsInstagram className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
+                </a>
+              <a target='_blank' href="https://wa.me/+923420414189">
+              <BsWhatsapp className='hover:scale-105 hover:text-accent cursor-pointer transition duration-200'/>
+              </a>
             </div>
 
-            <button id='contact' className="mt-5 px-5 py-2 rounded-full border border-accent hover:bg-accent hover:text-black cursor-pointer transition duration-300">
+            <button id='contact' className="mt-5 px-5 py-2 font-body rounded-full border border-accent hover:bg-accent hover:text-black cursor-pointer transition duration-300">
               Hire Me
             </button>
           </motion.div>
@@ -115,14 +126,14 @@ function App() {
 
         {/* ABOUT SECTION */}
         <section id='about' className="py-8 border-t border-gray-700">
-          <h2 className="text-xl font-semibold mb-4">About</h2>
-          <p className="text-gray-400 leading-relaxed">
+          <h2 className="text-xl font-semibold font-heading tracking-widest mb-4">About</h2>
+          <p className="text-gray-400 text-lg font-body leading-relaxed">
             I'm a professional system developer focused on building responsive and interactive web applications using modern technologies. I'm skilled in web development, video editing, and graphic design.
           </p>
         </section>
         {/* SKILLS */}
     <section id='skills' className="py-8 border-t border-gray-700">
-    <h2 className="text-xl font-semibold mb-6">Skills</h2>
+    <h2 className="text-xl font-semibold mb-6 font-heading tracking-widest">Skills</h2>
 
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
 
@@ -131,7 +142,7 @@ function App() {
           <motion.div
             key={i}
             whileHover={{ scale: 1.08 }}
-            className="flex flex-col items-center justify-center gap-2 p-4 bg-primary rounded-xl border border-gray-700 hover:shadow-glow transition cursor-pointer"
+            className="flex flex-col items-center justify-center gap-2 p-4 bg-primary rounded-xl border border-gray-700 hover:shadow-glow transition"
           >
             <div className="text-3xl text-accent">
               {skill.icon}
@@ -149,7 +160,7 @@ function App() {
 
         {/* PROJECTS */}
         <section id='projects' className="py-8 border-t border-gray-700">
-          <h2 className="text-xl font-semibold mb-6">Projects</h2>
+          <h2 className="text-xl font-semibold mb-6 font-heading tracking-widest">Projects</h2>
 
           <div className="grid md:grid-cols-2 gap-4">
 
@@ -162,12 +173,12 @@ function App() {
               >
                 
                 <div className='relative group flex-col gap-y-2'>
-                <img src={item.img} alt={item.title} className='w-full rounded-t-2xl' />
+                <img src={item.img} alt={item.title} className='w-full rounded-t-2xl mb-2' />
                 <div className='absolute inset-0 opacity-0 transition-all duration-200 justify-center bg-black/60 group-hover:opacity-100 flex items-center'>
-                  <span className='text-2xl font-semibold text-highlight bg-black/90 py-2 px-4 rounded-2xl'><a href={item.url} target='_blank'>Visit Now</a></span>
+                  <span className='text-2xl font-semibold text-highlight bg-black/90 py-2 px-4 rounded-2xl font-body'><a href={item.url} target='_blank'>Visit Now</a></span>
                 </div>
-                <h3 className="text-lg font-medium"> {item.title}</h3>
-                <p className="text-gray-400 text-sm mt-2">
+                <h3 className="text-lg font-medium font-body tracking-widest"> {item.title}</h3>
+                <p className="text-gray-400 text-sm mt-2 font-body">
                   {item.description}
                 </p>
                
@@ -182,9 +193,32 @@ function App() {
 
         {/* CONTACT */}
         <section className="py-8 border-t border-gray-700">
-          <h2 className="text-xl font-semibold mb-4">Contact</h2>
+          <h2 className="text-xl font-semibold mb-4 font-heading tracking-widest">Contact</h2>
+        <div className='max-w-full flex justify-between mx-auto'>
+          <div className='w-1/2'>
+            <p className="text-gray-400 text-lg font-body leading-relaxed">
+            Got a question or want to work together? <br />
+            Let’s connect and build something great.
+          </p>
+          <div className="flex gap-4 mt-4 text-xl justify-center">
+            <a target='_blank' href="https://github.com/MehtabWazir34">
+              <BsGithub className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
+            </a>
+            <a target='_blank' href="https://www.linkedin.com/in/mehtab-wazir-1429bb247/?skipRedirect=true"><BsLinkedin className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
+            </a>
+            <a target='_blank' href="https://www.facebook.com/mehtabwazir34">
+              <BsFacebook className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
+            </a>
+              <a target='_blank' href="https://www.instagram.com/_wazirguy/">
+                <BsInstagram className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
+                </a>
+              <a target='_blank' href="https://wa.me/+923420414189">
+              <BsWhatsapp className='hover:scale-105 hover:text-accent cursor-pointer transition duration-200'/>
+              </a>
+            </div>
 
-          <form className="flex flex-col gap-4 max-w-lg">
+          </div>
+          <form className="flex flex-col  gap-4 mx-2 w-1/2 font-body">
 
             <input 
               type="text"
@@ -202,13 +236,14 @@ function App() {
               placeholder="Your Message"
               rows="4"
               className="p-3 rounded bg-primary border border-gray-600 focus:border-accent outline-none"
-            />
+              />
 
             <button className="bg-accent text-black py-2 rounded hover:bg-highlight transition cursor-pointer">
               Send Message
             </button>
 
           </form>
+              </div>
         </section>
 
       </section>
