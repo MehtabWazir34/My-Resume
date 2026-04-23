@@ -1,6 +1,6 @@
 import me from './assets/me.png'
 import { BsChat, BsFacebook, BsGithub, BsInbox, BsInstagram, BsLinkedin, BsMailbox, BsMailbox2, BsVoicemail, BsWhatsapp } from 'react-icons/bs'
-import { motion } from 'framer-motion'
+import { easeInOut, motion } from 'framer-motion'
 import { FaCss3Alt, FaHtml5, FaJs, FaReact } from 'react-icons/fa'
 import { SiExpress, SiMongodb, SiNodedotjs, SiTailwindcss } from 'react-icons/si'
 import { BiSolidMessage, BiSolidVideoRecording } from 'react-icons/bi'
@@ -87,42 +87,37 @@ function App() {
           </div>
 
           <nav>
-            <ul className="flex gap-3 md:gap-6 text-sm md:text-base font-body">
+            <motion.ul 
+            initial={{opacity:0, x:120}}
+            whileInView={{opacity:1, x:0}}
+            transition={{duration:0.5, ease:"easeInOut"}}
+            className="flex gap-3 md:gap-6 text-sm md:text-base font-body">
               
               <a href="#about" className='hover:scale-105 hover:text-accent cursor-pointer transition duration-200'>About</a>
               <a href='#projects' className= "duration-200 transition hover:scale-105 hover:text-accent cursor-pointer">Projects</a>
               <a href='#contact' className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">Contact</a>
-            </ul>
+            </motion.ul>
           </nav>
         </header>
 
         {/* HERO SECTION */}
         <main className="flex flex-col md:flex-row items-center gap-6 py-8">
 
-          {/* IMAGE */}
-          {/* <motion.div 
-            initial={{opacity:0, x:-50}} 
-            animate={{opacity:1, x:0}} 
-            className="w-84 h-84 flex justify-center overflow-hidden 
-            rounded-[60%_40%_30%_30%/60%_30%_70%_60%] shadow-[0_0_40px_rgba(0,0,0,0.15)]"
-          >
-            <img 
-              src={Ys} 
-              alt="Mehtab"
-              className="w-48 md:w-full h-full object-cover"
-            />
-          </motion.div> */}
-          <div className="relative w-[300px] h-[300px]">
+          <motion.div
+          initial={{opacity:0, y:150}}
+          whileInView={{opacity:1, y:0}}
+          transition={{duration:0.5, ease:"easeInOut"}}
+          className="relative w-75 h-75">
 
   {/* <!-- 🔥 Glow layer --> */}
   <div className="absolute inset-0 
               rounded-[60%_40%_30%_70%/60%_30%_70%_40%]
-              bg-gradient-to-tr from-pink-500 via-purple-500 to-yellow-400
+              bg-linear-to-tr from-pink-500 via-purple-500 to-yellow-400
               opacity-30 blur-xl">
   </div>
 
   {/* <!-- 🧠 Image layer --> */}
-  <div className="absolute inset-[20px] 
+  <div className="absolute inset-5 
               overflow-hidden
               rounded-[60%_40%_30%_70%/60%_30%_70%_40%]">
     <img src={Ys} 
@@ -139,15 +134,19 @@ function App() {
                 transparent_2px,
                 transparent_6px
               )]
-              [mask-image:radial-gradient(circle,transparent_58%,black_60%)]">
+              [mask:radial-gradient(circle,transparent_58%,black_60%)]">
   </div>
 
-</div>
+</motion.div>
 
-          {/* TEXT */}
+          {/* INFO */}
           <motion.div 
-            initial={{opacity:0, x:50}} 
-            animate={{opacity:1, x:0}} 
+            initial={{opacity:0, y:150}} 
+            animate={{opacity:1, y:0}}
+            transition={{
+              duration:0.5,
+              ease:'easeInOut'
+            }} 
             className="w-full md:w-1/2"
           >
             <h2 className="text-2xl md:text-3xl font-bold font-heading">
@@ -185,14 +184,26 @@ function App() {
         </main>
 
         {/* ABOUT SECTION */}
-        <section id='about' className="py-8 border-t border-gray-700">
+        <motion.section 
+          initial={{opacity:0, y:150}}
+          whileInView={{opacity:1, y:0}}
+          transition={{
+            duration:0.5,
+            ease:'easeInOut'
+          }}
+          
+        id='about' className="py-8 border-t border-gray-700">
           <h2 className="text-xl font-semibold font-heading tracking-widest mb-4">About</h2>
           <p className="text-gray-400 text-lg font-body leading-relaxed">
             I'm a professional system developer focused on building responsive and interactive web applications using modern technologies. I'm skilled in web development, video editing, and graphic design.
           </p>
-        </section>
+        </motion.section>
         {/* SKILLS */}
-    <section id='skills' className="py-8 border-t border-gray-700">
+    <motion.section id='skills'
+     initial={{opacity:0, y:120}}
+     whileInView={{opacity:1, y:0}}
+     transition={{duration:0.5, ease:"easeInOut"}}
+     className="py-8 border-t border-gray-700">
     <h2 className="text-xl font-semibold mb-6 font-heading tracking-widest">Skills</h2>
 
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -200,6 +211,9 @@ function App() {
       {skills.map((skill, i) => (
       
           <motion.div
+          initial={{opacity:0, y:120}}
+     whileInView={{opacity:1, y:0}}
+     transition={{duration:0.5, ease:"easeInOut"}}
             key={i}
             whileHover={{ scale: 1.08 }}
             className="flex flex-col items-center justify-center gap-2 p-4 bg-primary rounded-xl border border-gray-700 hover:shadow-glow transition"
@@ -216,7 +230,7 @@ function App() {
         ))}
 
       </div>
-    </section>
+    </motion.section>
 
         {/* PROJECTS */}
         <section id='projects' className="py-8 border-t border-gray-700">
@@ -226,7 +240,10 @@ function App() {
 
             {
             projects.map((item, idx)=>(
-              <motion.div 
+              <motion.div
+                initial={{opacity:0, y:120}}
+                whileInView={{opacity:1, y:0}}
+                transition={{duration:0.5, ease:"easeInOut"}} 
                 key={idx}
                 whileHover={{scale:1.03}}
                 className="bg-primary p-4 rounded-2xl border border-gray-700 hover:shadow-glow transition"
@@ -252,7 +269,11 @@ function App() {
         </section>
 
         {/* CONTACT */}
-        <section id='contact' className="py-8 border-t border-gray-700">
+        <motion.section
+        initial={{opacity:0, y:120}}
+        whileInView={{opacity:1, y:0}}
+        transition={{duration:0.5, ease:"easeInOut"}}
+        id='contact' className="py-8 border-t border-gray-700">
           <h2 className="text-xl font-semibold mb-4 font-heading tracking-widest">Contact</h2>
         <div className='max-w-full grid place-items-center gap-y-4 md:flex md:justify-between mx-auto'>
           <div className='md:w-1/2 w-full'>
@@ -304,7 +325,7 @@ function App() {
 
           </form>
               </div>
-        </section>
+        </motion.section>
 
       </section>
     </div>
