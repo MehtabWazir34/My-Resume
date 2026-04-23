@@ -52,9 +52,8 @@ function App() {
     setMsg("Sending...");
 
     sendForm(
-      import.meta.env.VITE_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-      // import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      `${import.meta.env.VITE_EMAILJS_SERVICE_ID}`,
+      `${import.meta.env.VITE_EMAILJS_TEMPLATE_ID}`,
       formRef.current
     ).then(() => {
       setMsg("Message sent!");
