@@ -7,8 +7,11 @@ import { BiSolidMessage, BiSolidVideoRecording } from 'react-icons/bi'
 import  js from './assets/01.png'
 import  wts from './assets/02.png'
 import  bs from './assets/bs.png'
+import  Ys from './assets/Ys.jpg'
 import shoplite from './assets/ShopLite.png'
 import { Link } from 'react-router-dom'
+import { useRef, useState } from 'react'
+import { init, sendForm } from '@emailjs/browser'
 const projects = [
             {title:"JanSports", 
               description:"A fullstack e-commerece based online sport shop build for JanSports.", 
@@ -38,14 +41,39 @@ const projects = [
     {name: "MongoDB", icon: <SiMongodb/>},
     {name: "Video Editing", icon: <BiSolidVideoRecording/>}
   ]
+  init(`${import.meta.env.VITE_EMAILJS_PUBLIC_KEY}`);
 function App() {
+
+  
+  const formRef = useRef();
+  let [statusMsg, setMsg] = useState('')
+ const sendMessage =(a)=>{
+    a.preventDefault();
+    setMsg("Sending...");
+
+    sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      // import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      formRef.current
+    ).then(() => {
+      setMsg("Message sent!");
+      alert(statusMsg);
+      formRef.current.reset();
+
+    }).catch((err) => {
+      setMsg("Failed to send message! ")
+      console.log("Err: ", err);
+      
+    });
+  }
   return (
     <div className="bg-primary text-white min-h-screen flex justify-center items-center px-2">
 
       <section className="w-[95%] md:w-[80%] max-w-6xl rounded-2xl shadow-2xl shadow-blue-900 p-4 my-6 bg-secondary overflow-hidden">
       
         {/* HEADER */}
-        <header className="flex justify-between items-center px-4 py-3 border-b border-gray-700">
+        <header className="flex justify-between items-center p-2 md:px-4 md:py-3 border-b border-gray-700">
           <div className='grid'>
           <div className='gap-1 justify-center -mt-4 flex'>
           <div className='rounded-full w-3 h-3 bg-yellow-500 animate-pulse duration-150'>
@@ -56,14 +84,15 @@ function App() {
           </div>
           </div>
          
-          <h2 className="text-xl font-semibold tracking-wide font-heading animate-pulse text-accent">WAZIR</h2>
+          <h2 className="md:text-xl font-semibold tracking-wide font-heading animate-pulse text-accent">WAZIR</h2>
           </div>
 
           <nav>
-            <ul className="flex gap-6 text-sm md:text-base font-body">
-              <li className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">About</li>
-              <li id='projects' className= "duration-200 transition hover:scale-105 hover:text-accent cursor-pointer">Projects</li>
-              <li id='contact' className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">Contact</li>
+            <ul className="flex gap-3 md:gap-6 text-sm md:text-base font-body">
+              
+              <a href="#about" className='hover:scale-105 hover:text-accent cursor-pointer transition duration-200'>About</a>
+              <a href='#projects' className= "duration-200 transition hover:scale-105 hover:text-accent cursor-pointer">Projects</a>
+              <a href='#contact' className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">Contact</a>
             </ul>
           </nav>
         </header>
@@ -72,17 +101,49 @@ function App() {
         <main className="flex flex-col md:flex-row items-center gap-6 py-8">
 
           {/* IMAGE */}
-          <motion.div 
+          {/* <motion.div 
             initial={{opacity:0, x:-50}} 
             animate={{opacity:1, x:0}} 
-            className="w-full md:w-1/2 flex justify-center"
+            className="w-84 h-84 flex justify-center overflow-hidden 
+            rounded-[60%_40%_30%_30%/60%_30%_70%_60%] shadow-[0_0_40px_rgba(0,0,0,0.15)]"
           >
             <img 
-              src={me} 
+              src={Ys} 
               alt="Mehtab"
-              className="w-48 md:w-64 rounded-full border-4 border-accent shadow-glow hover:scale-105 transition duration-300"
+              className="w-48 md:w-full h-full object-cover"
             />
-          </motion.div>
+          </motion.div> */}
+          <div className="relative w-[300px] h-[300px]">
+
+  {/* <!-- 🔥 Glow layer --> */}
+  <div className="absolute inset-0 
+              rounded-[60%_40%_30%_70%/60%_30%_70%_40%]
+              bg-gradient-to-tr from-pink-500 via-purple-500 to-yellow-400
+              opacity-30 blur-xl">
+  </div>
+
+  {/* <!-- 🧠 Image layer --> */}
+  <div className="absolute inset-[20px] 
+              overflow-hidden
+              rounded-[60%_40%_30%_70%/60%_30%_70%_40%]">
+    <img src={Ys} 
+         className="w-full h-full object-cover" />
+  </div>
+
+  {/* <!-- 🎯 Striped frame --> */}
+  <div className="absolute inset-0 
+              rounded-[60%_40%_30%_70%/60%_30%_70%_40%]
+              bg-[repeating-linear-gradient(
+                to_bottom,
+                rgba(255,255,255,0.7)_0px,
+                rgba(255,255,255,0.7)_2px,
+                transparent_2px,
+                transparent_6px
+              )]
+              [mask-image:radial-gradient(circle,transparent_58%,black_60%)]">
+  </div>
+
+</div>
 
           {/* TEXT */}
           <motion.div 
@@ -118,8 +179,8 @@ function App() {
               </a>
             </div>
 
-            <button id='contact' className="mt-5 px-5 py-2 font-body rounded-full border border-accent hover:bg-accent hover:text-black cursor-pointer transition duration-300">
-              Hire Me
+            <button className="mt-5 px-5 py-2 font-body rounded-full border border-accent hover:bg-accent hover:text-black cursor-pointer transition duration-300">
+              <a href="#contact">Hire Me</a>
             </button>
           </motion.div>
         </main>
@@ -192,10 +253,10 @@ function App() {
         </section>
 
         {/* CONTACT */}
-        <section className="py-8 border-t border-gray-700">
+        <section id='contact' className="py-8 border-t border-gray-700">
           <h2 className="text-xl font-semibold mb-4 font-heading tracking-widest">Contact</h2>
-        <div className='max-w-full flex justify-between mx-auto'>
-          <div className='w-1/2'>
+        <div className='max-w-full grid place-items-center gap-y-4 md:flex md:justify-between mx-auto'>
+          <div className='md:w-1/2 w-full'>
             <p className="text-gray-400 text-lg font-body leading-relaxed">
             Got a question or want to work together? <br />
             Let’s connect and build something great.
@@ -218,7 +279,7 @@ function App() {
             </div>
 
           </div>
-          <form className="flex flex-col  gap-4 mx-2 w-1/2 font-body">
+          <form ref={formRef} onSubmit={sendMessage} className="flex flex-col  gap-4 mx-2 md:w-1/2 font-body">
 
             <input 
               type="text"
@@ -238,7 +299,7 @@ function App() {
               className="p-3 rounded bg-primary border border-gray-600 focus:border-accent outline-none"
               />
 
-            <button className="bg-accent text-black py-2 rounded hover:bg-highlight transition cursor-pointer">
+            <button type='submit' className="bg-accent text-black py-2 rounded hover:bg-highlight transition cursor-pointer">
               Send Message
             </button>
 
