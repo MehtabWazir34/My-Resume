@@ -8,3 +8,10 @@
   --font-heading: 'Orbitron', 'sans-serif';
   --font-body:'JetBrains Mono', 'sans-serif';
 }
+.scrollbarHide{
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbarHide::-webkit-scrollbar{
+  display: none;
+}
