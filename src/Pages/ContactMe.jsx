@@ -47,16 +47,16 @@ function ContactMe() {
     <motion.section
       {...fadeUp}
       id="contact"
-      className="py-16 border-t border-gray-700 px-6 md:px-16 "
+      className="py-16  px-6 md:px-16 "
     >
       {/* 🔷 Heading */}
-      <div className="text-center mb-12">
+      <div className=" mb-12">
         <h2 className="text-3xl font-heading tracking-widest mb-4">
           Contact Me
         </h2>
         <p className="text-gray-400 font-body max-w-xl mx-auto">
-          Got a question or want to collaborate? Let’s build something impactful
-          together.
+            Whether it's building a website, crafting a brand identity, or editing your next video — I'm open to freelance work, collaborations, and full-time opportunities.
+
         </p>
       </div>
 
@@ -64,14 +64,12 @@ function ContactMe() {
       <div className="grid md:grid-cols-2 gap-10 items-start">
         {/* 🔹 Left Side */}
         <div className="bg-primary p-6 rounded-2xl shadow-lg hover:scale-105 transition duration-300">
-          <h3 className="font-heading text-xl mb-4 text-accent">
+          <h3 className="font-heading text-xl mb-4 text-highlight">
             Connect with me
           </h3>
 
           <p className="text-gray-300 font-body leading-relaxed mb-6">
-            I’m always open to discussing new projects, creative ideas, or
-            opportunities to be part of your vision.
-          </p>
+          Reach me anywhere  </p>
 
           <div className="flex gap-5 text-xl">
             <a href="https://github.com/MehtabWazir34" target="_blank">

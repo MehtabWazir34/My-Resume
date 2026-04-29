@@ -10,8 +10,7 @@ import  bs from '../assets/bs.png'
 import  Ys from '../assets/Ys.jpg'
 import shoplite from '../assets/ShopLite.png'
 import { Link } from 'react-router-dom'
-import { useRef, useState } from 'react'
-import { init, sendForm } from '@emailjs/browser'
+import { useEffect, useRef } from 'react'
 import ContactMe from './ContactMe'
 
 const projects = [
@@ -33,18 +32,61 @@ const projects = [
               url:'https://waz-tech-solutions.vercel.app/'}
           ]
     const skills = [
-    { name: "HTML", icon: <FaHtml5 /> },
-    { name: "CSS", icon: <FaCss3Alt /> },
     { name: "JavaScript", icon: <FaJs /> },
     { name: "React", icon: <FaReact /> },
-    { name: "Tailwind", icon: <SiTailwindcss /> },
+    { name: "TailwindCSS", icon: <SiTailwindcss /> },
     {name:"Node.js", icon: <SiNodedotjs/>},
     { name: "Express", icon: <SiExpress /> },
     {name: "MongoDB", icon: <SiMongodb/>},
     {name: "Video Editing", icon: <BiSolidVideoRecording/>}
   ]
-  init(`${import.meta.env.VITE_EMAILJS_PUBLIC_KEY}`);
 function Home() {
+  const myroles = ["Web Developer", "Video Editor", "Graphic Designer"]
+  const typeREF = useRef(null);
+  useEffect(()=>{
+    const txt = typeREF.current;
+    if(!txt) return;
+
+    let idx = 0
+    const rePEAT = ()=>{
+      const word = myroles[idx];
+      txt.textContent = [word];
+      txt.style.width = 'auto';
+      txt.style.animation = 'none';
+      void txt.offsetWidth;
+      
+      const mxWdth = txt.scrollWidth;
+      txt.style.width = '0px';
+      void txt.offsetWidth;
+
+      txt.style.transition = 'none'
+      txt.style.animation = `blink-caret 0.75s step-end infinite`;
+
+      const chr = word.length;
+      const duration = 2000;
+      const blinkTime = duration / chr;
+      let chrIDX = 0;
+
+      const textTyping = setInterval (()=>{
+        chrIDX ++;
+        txt.style.width = `${(mxWdth / chr ) * chrIDX}px`;
+        if(chrIDX >= chr) clearInterval(textTyping);
+      }, blinkTime);
+      idx = (idx + 1) % myroles.length;
+    };
+
+    rePEAT();
+    const intrvl = setInterval(rePEAT, 3000)
+    return ()=> clearInterval(intrvl)
+
+  })
+
+  const fadeUp = {
+  initial: { opacity: 0, y: 120 },
+  whileInView: { opacity: 1, y: 0 },
+  transition: { duration: 0.5, ease: "easeInOut" },
+  viewport: { once: true },
+};
 
   return (
     // <div className="bg-primary text-white min-h-screen flex justify-center items-center px-2">
@@ -97,13 +139,16 @@ function Home() {
               duration:0.5,
               ease:'easeInOut'
             }} 
-            className="w-full md:w-1/2"
+            className="w-full text-center md:text-left grid md:place-items-start place-items-center md:w-1/2"
           >
             <h2 className="text-2xl md:text-3xl font-bold font-heading">
               Hi, it's <span className="text-highlight tracking-widest">Mehtab Wazir</span>
             </h2>
 
-            <h3 className="text-xl text-gray-300 mt-1 font-body">Web Developer</h3>
+       
+              <h2 ref={typeREF} className='typingText text-xl text-gray-300 mt-1 font-body ' >
+                {/* {it} */}
+              </h2>
 
             <p className="text-gray-400 text-lg mt-3 font-body">
               I build modern responsive systems in the form of web applications with clean UI, performance, and strong user experience.
@@ -151,6 +196,7 @@ function Home() {
             I'm a professional system developer focused on building responsive and interactive web applications using modern technologies. I'm skilled in web development, video editing, and graphic design.
           </p>
         </motion.section>
+              
         {/* SKILLS */}
     <motion.section id='skills'
      initial={{opacity:0, y:120}}
@@ -183,10 +229,58 @@ function Home() {
         ))}
 
       </div>
+        <div className='mx-auto w-full flex justify-center'>
+            
+            <Link to={'/about-me'} className="mt-5 px-5 py-2 font-body rounded-full border border-accent hover:bg-accent hover:text-black cursor-pointer transition duration-300"> See Details </Link>
+
+            </div>
     </motion.section>
+    <motion.section {...fadeUp} className="mb-20">
+                <h2 className="font-heading  text-xl mb-12 ">
+                  Experience
+                </h2>
+        
+                <div className="space-y-12">
+                  {/* Web Dev */}
+                  <div className="grid md:grid-cols-3 gap-6 items-start">
+                    <h3 className="font-heading text-xl ">
+                      Web Development
+                    </h3>
+                    <p className="md:col-span-2 font-body text-gray-300 leading-relaxed">
+                      1+ year of experience as a full-stack developer, focused on
+                      building modern, responsive, and scalable web applications. I have
+                      worked on ... <br />
+                       <Link to={'/about-me'} className='text-sm text-yellow-100 hover:text-yellow-200 transition-colors duration-200 underline'>Read more</Link>
+                    </p>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-6 items-start">
+                    <h3 className="font-heading text-xl ">
+                      Video Editing
+                    </h3>
+                    <p className="md:col-span-2 font-body text-gray-300 leading-relaxed">
+                      1.5 years of professional experience working with freelance and
+                      regular clients. My work includes ... <br />
+                       <Link to={'/about-me'} className='text-sm text-yellow-100 hover:text-yellow-200 transition-colors duration-200 underline'>Read more</Link>
+                    </p>
+                  </div>
+        
+                  {/* Graphic Design */}
+                  <div className="grid md:grid-cols-3 gap-6 items-start">
+                    <h3 className="font-heading text-xl ">
+                      Graphic Design
+                    </h3>
+                    <p className="md:col-span-2 font-body text-gray-300 leading-relaxed">
+                      1.5 years of experience designing for diverse clients including
+                      educators, YouTubers, freelancers, and ... <br />
+                       <Link to={'/about-me'} className='text-sm text-yellow-100 hover:text-yellow-200 transition-colors duration-200 underline'>Read more</Link>
+                    </p>
+                  </div>
+                </div>
+              </motion.section>
 
         {/* PROJECTS */}
-        <section id='projects' className="py-8 border-t border-gray-700">
+        <section id='projects' className="py-8 border-t border-b border-gray-700">
           <h2 className="text-xl font-semibold mb-6 font-heading tracking-widest">Projects</h2>
 
           <div className="grid md:grid-cols-2 gap-4">

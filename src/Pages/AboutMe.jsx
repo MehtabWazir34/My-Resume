@@ -32,7 +32,7 @@ const About = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }} >
       {/* 🔷 Hero Section */}
-      <motion.section {...fadeUp} className="mb-20 text-center">
+      <motion.section {...fadeUp} className="mb-20 ">
         <h1 className="font-heading text-highlight text-4xl md:text-5xl mb-6 tracking-wide">
           About Me
         </h1>
@@ -54,7 +54,7 @@ const About = () => {
           whileInView={{opacity:1, y:0}}
           transition={{duration:0.5, ease:"easeInOut"}}
           className="py-8 border-t border-gray-700">
-         <h2 className="text-3xl text-center text-highlight font-semibold mb-6 font-heading tracking-widest">Skills</h2>
+         <h2 className="text-3xl  text-highlight font-semibold mb-6 font-heading tracking-widest">Skills</h2>
      
          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
      
@@ -84,7 +84,7 @@ const About = () => {
 
       {/* 🔷 Experience Section */}
       <motion.section {...fadeUp} className="mb-20">
-        <h2 className="font-heading text-highlight text-3xl mb-12 text-center">
+        <h2 className="font-heading text-highlight text-3xl mb-12 ">
           Experience
         </h2>
 
@@ -125,7 +125,7 @@ const About = () => {
             <p className="md:col-span-2 font-body text-gray-300 leading-relaxed">
               1.5 years of experience designing for diverse clients including
               educators, YouTubers, freelancers, and content creators. My work
-              includes social media posts, banners, posters, and thumbnails—
+              includes brand logos, banners, posters, and thumbnails—
               crafted to be visually compelling and platform-optimized.
             </p>
           </div>
@@ -133,7 +133,7 @@ const About = () => {
       </motion.section>
 
       {/* 🔷 Closing Section */}
-      <motion.section {...fadeUp} className="text-center">
+      <motion.section {...fadeUp} className="">
         <h2 className="font-heading text-highlight text-3xl mb-6">
           What Sets Me Apart?
         </h2>

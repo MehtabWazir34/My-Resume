@@ -55,9 +55,8 @@ function App() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="flex gap-3 md:gap-6 text-sm md:text-base font-body"
               >
-                {/* <Link to="/" className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">Home</Link> */}
+                <Link to="/" className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">Home</Link>
                 <Link to="/about-me" className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">About</Link>
-                <Link to="/my-services" className="duration-200 transition hover:scale-105 hover:text-accent cursor-pointer">Services</Link>
                 <Link to="/contact-me" className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">Contact</Link>
               </motion.ul>
             </nav>
