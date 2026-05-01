@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import ContactMe from "./Pages/ContactMe";
 import { Toaster } from "sonner";
 import { useEffect, useState, useRef } from "react";
-
+import { Analytics } from "@vercel/analytics/next";
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const sectionRef = useRef(null);
@@ -24,6 +24,7 @@ function App() {
 
   return (
     <>
+    <Analytics mode="production"/>
       <main className="bg-primary text-white min-h-screen flex justify-center items-start px-2 py-6">
         <section
           ref={sectionRef}
