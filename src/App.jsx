@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import ContactMe from "./Pages/ContactMe";
 import { Toaster } from "sonner";
 import { useEffect, useState, useRef } from "react";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 function App() {
   const [scrolled, setScrolled] = useState(false);
   const sectionRef = useRef(null);
