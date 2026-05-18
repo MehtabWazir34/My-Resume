@@ -37,7 +37,7 @@ const About = () => {
           About Me
         </h1>
         <p className="font-body text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          I’m a professional system-focused developer specializing in building
+          I’m a professional system-focused developer specializing in creating
           responsive, scalable, and interactive web applications using modern
           technologies.
           <br />

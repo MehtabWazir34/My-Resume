@@ -151,7 +151,7 @@ function Home() {
               </h2>
 
             <p className="text-gray-400 text-lg mt-3 font-body">
-              I build modern responsive systems in the form of web applications with clean UI, performance, and strong user experience.
+              I create modern responsive systems in the form of web applications with clean UI, performance, and strong user experience.
             </p>
 
             {/* SOCIAL */}
