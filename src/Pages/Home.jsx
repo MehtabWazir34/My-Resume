@@ -112,7 +112,7 @@ function Home() {
   <div className="absolute inset-5 
               overflow-hidden
               rounded-[60%_40%_30%_70%/60%_30%_70%_40%]">
-    <img src={Ys} 
+    <img src={Ys} fetchPriority='high' loading='eager' alt='mehtab wazir developer'
          className="w-full h-full object-cover" />
   </div>
 
@@ -156,27 +156,27 @@ function Home() {
 
             {/* SOCIAL */}
             <div className="flex gap-4 mt-4 text-xl">
-               <a target='_blank' href="https://github.com/MehtabWazir34">
+               <a aria-label='mehtab wazir github profile' target='_blank' href="https://github.com/MehtabWazir34">
               <BsGithub className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
             </a>
-            <a target='_blank' href="https://www.linkedin.com/in/mehtab-wazir-1429bb247/?skipRedirect=true"><BsLinkedin className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
+            <a aria-label='mehtab wazir linkedin' target='_blank' href="https://www.linkedin.com/in/mehtab-wazir-1429bb247/?skipRedirect=true"><BsLinkedin className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
             </a>
-            <a target='_blank' href="https://www.facebook.com/mehtabwazir34">
+            <a aria-label='mehtab wazir facebook profile' target='_blank' href="https://www.facebook.com/mehtabwazir34">
               <BsFacebook className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
             </a>
-              <a target='_blank' href="https://www.instagram.com/_wazirguy/">
+              <a aria-label='mehtab wazir instagram profile' target='_blank' href="https://www.instagram.com/_wazirguy/">
                 <BsInstagram className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
                 </a>
-              <a target='_blank' href="https://wa.me/+923420414189">
+              <a aria-label='mehtab wazir contact' target='_blank' href="https://wa.me/+923420414189">
               <BsWhatsapp className='hover:scale-105 hover:text-accent cursor-pointer transition duration-200'/>
               </a>
             </div>
 
             <div className='flex gap-2'>
-            <button className="mt-5 px-5 py-2 font-body rounded-full border border-accent hover:bg-accent hover:text-black cursor-pointer transition duration-300">
-              <a href="#contact">Hire Me</a>
+            <button className="mt-5 p-2 font-body rounded-full border border-accent hover:bg-accent hover:text-black cursor-pointer transition duration-300">
+              <a href="#contact px-5 py-2">Hire Me</a>
             </button>
-            <Link to={'/about-me'} className="mt-5 px-5 py-2 font-body rounded-full border border-accent hover:bg-accent hover:text-black cursor-pointer transition duration-300">Know me more</Link>
+            <Link aria-label='mehtab wazir about' to={'/about-me'} className="mt-5 p-2 font-body rounded-full border border-accent hover:bg-accent hover:text-black cursor-pointer transition duration-300 ">Know me more</Link>
             </div>
           </motion.div>
         </main>
@@ -250,7 +250,7 @@ function Home() {
                       1+ year of experience as a full-stack developer, focused on
                       building modern, responsive, and scalable web applications. I have
                       worked on ... <br />
-                       <Link to={'/about-me'} className='text-sm text-yellow-100 hover:text-yellow-200 transition-colors duration-200 underline'>Read more</Link>
+                       <Link to={'/about-me'} className='text-sm text-yellow-100 hover:text-yellow-200 transition-colors duration-200 underline'>See details</Link>
                     </p>
                   </div>
 
@@ -261,7 +261,7 @@ function Home() {
                     <p className="md:col-span-2 font-body text-gray-300 leading-relaxed">
                       1.5 years of professional experience working with freelance and
                       regular clients. My work includes ... <br />
-                       <Link to={'/about-me'} className='text-sm text-yellow-100 hover:text-yellow-200 transition-colors duration-200 underline'>Read more</Link>
+                       <Link to={'/about-me'} className='text-sm text-yellow-100 hover:text-yellow-200 transition-colors duration-200 underline'>See details</Link>
                     </p>
                   </div>
         
@@ -273,7 +273,7 @@ function Home() {
                     <p className="md:col-span-2 font-body text-gray-300 leading-relaxed">
                       1.5 years of experience designing for diverse clients including
                       educators, YouTubers, freelancers, and ... <br />
-                       <Link to={'/about-me'} className='text-sm text-yellow-100 hover:text-yellow-200 transition-colors duration-200 underline'>Read more</Link>
+                       <Link to={'/about-me'} className='text-sm text-yellow-100 hover:text-yellow-200 transition-colors duration-200 underline'>See details</Link>
                     </p>
                   </div>
                 </div>
@@ -297,10 +297,10 @@ function Home() {
               >
                 
                 <div className='relative group flex-col gap-y-2'>
-                <img src={item.img} alt={item.title} className='w-full rounded-t-2xl mb-2' />
-                <div className='absolute inset-0 opacity-0 transition-all duration-200 justify-center bg-black/60 group-hover:opacity-100 flex items-center'>
+                <img src={item.img} alt={item.title} className='w-full h-auto rounded-t-2xl mb-2' />
+                <Link to={item.url} className='absolute inset-0 opacity-0 transition-all duration-200 justify-center bg-black/60 group-hover:opacity-100 flex items-center'>
                   <span className='text-2xl font-semibold text-highlight bg-black/90 py-2 px-4 rounded-2xl font-body'><a href={item.url} target='_blank'>Visit Now</a></span>
-                </div>
+                </Link>
                 <h3 className="text-lg font-medium font-body tracking-widest"> {item.title}</h3>
                 <p className="text-gray-400 text-sm mt-2 font-body">
                   {item.description}
@@ -315,7 +315,6 @@ function Home() {
           </div>
         </section>
 
-        {/* CONTACT */}
         <ContactMe/>
 
       </section>

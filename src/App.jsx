@@ -41,7 +41,7 @@ function App() {
             <div className="grid">
               <div className="gap-1 justify-center -mt-2 flex">
                 <div className="rounded-full w-3 h-3 bg-yellow-500 animate-pulse"></div>
-                <div className="rounded-full w-3 h-3 bg-red-500 animate-pulse"></div>
+                <div className="rounded-full w-3 h-3 bg-accent animate-pulse"></div>
                 <div className="rounded-full w-3 h-3 bg-blue-500 animate-pulse"></div>
               </div>
               <Link to={'/'} className="md:text-xl text-sm font-semibold tracking-wide font-heading animate-pulse text-accent">
@@ -56,9 +56,16 @@ function App() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
                 className="flex gap-3 md:gap-6 text-sm md:text-base font-body"
               >
-                <Link to="/" className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">Home</Link>
+                <li>
+                <Link to="/" className="hover:scale-105 hover:text-yellow-500 cursor-pointer transition duration-200">Home</Link>
+                </li>
+                <li>
+
                 <Link to="/about-me" className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">About</Link>
-                <Link to="/contact-me" className="hover:scale-105 hover:text-accent cursor-pointer transition duration-200">Contact</Link>
+                </li>
+                <li>
+                <Link to="/contact-me" className="hover:scale-105 hover:text-blue-500 cursor-pointer transition duration-200">Contact</Link>
+                </li>
               </motion.ul>
             </nav>
           </header>
@@ -71,6 +78,7 @@ function App() {
               <Route path="/contact-me" element={<ContactMe />} />
             </Routes>
           </div>
+        <footer className="w-full flex flex-col justify-center -space-y-2 text-center border-t border-gray-700 p-2 md:p-4 bg-secondary/60 font-heading text-xs tracking-widest ">Made with Passion <br /> <span className="text-[12px]  font-heading">WAZIR</span></footer>
         </section>
       </main>
     </>

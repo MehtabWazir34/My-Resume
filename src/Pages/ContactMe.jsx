@@ -71,23 +71,23 @@ function ContactMe() {
           <p className="text-gray-300 font-body leading-relaxed mb-6">
           Reach me anywhere  </p>
 
-          <div className="flex gap-5 text-xl">
-            <a href="https://github.com/MehtabWazir34" target="_blank">
-              <BsGithub className="hover:scale-105 hover:text-accent transition duration-200" />
+           <div className="flex gap-4 mt-4 text-xl">
+               <a aria-label='mehtab wazir github profile' target='_blank' href="https://github.com/MehtabWazir34">
+              <BsGithub className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
             </a>
-            <a href="https://www.linkedin.com/in/mehtab-wazir-1429bb247/" target="_blank">
-              <BsLinkedin className="hover:scale-105 hover:text-accent transition duration-200" />
+            <a aria-label='mehtab wazir linkedin' target='_blank' href="https://www.linkedin.com/in/mehtab-wazir-1429bb247/?skipRedirect=true"><BsLinkedin className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
             </a>
-            <a href="https://www.facebook.com/mehtabwazir34" target="_blank">
-              <BsFacebook className="hover:scale-105 hover:text-accent transition duration-200" />
+            <a aria-label='mehtab wazir facebook profile' target='_blank' href="https://www.facebook.com/mehtabwazir34">
+              <BsFacebook className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
             </a>
-            <a href="https://www.instagram.com/_wazirguy/" target="_blank">
-              <BsInstagram className="hover:scale-105 hover:text-accent transition duration-200" />
-            </a>
-            <a href="https://wa.me/923420414189" target="_blank">
-              <BsWhatsapp className="hover:scale-105 hover:text-accent transition duration-200" />
-            </a>
-          </div>
+              <a aria-label='mehtab wazir instagram profile' target='_blank' href="https://www.instagram.com/_wazirguy/">
+                <BsInstagram className=" hover:scale-105 hover:text-accent cursor-pointer transition duration-200"/>
+                </a>
+              <a aria-label='mehtab wazir contact' target='_blank' href="https://wa.me/+923420414189">
+              <BsWhatsapp className='hover:scale-105 hover:text-accent cursor-pointer transition duration-200'/>
+              </a>
+            </div>
+
         </div>
 
         {/* 🔹 Right Side (Form) */}
