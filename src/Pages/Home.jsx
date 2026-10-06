@@ -1,13 +1,12 @@
 // import me from '../assets/me.png'
-import { BsChat, BsFacebook, BsGithub, BsInbox, BsInstagram, BsLinkedin, BsMailbox, BsMailbox2, BsVoicemail, BsWhatsapp } from 'react-icons/bs'
-import { FaCss3Alt, FaHtml5, FaJs, FaReact } from 'react-icons/fa'
+import {  BsFacebook, BsGithub, BsInstagram, BsLinkedin, BsWhatsapp } from 'react-icons/bs'
+import { FaJs, FaReact } from 'react-icons/fa'
 import { SiExpress, SiMongodb, SiNodedotjs, SiTailwindcss } from 'react-icons/si'
-import { BiSolidMessage, BiSolidVideoRecording } from 'react-icons/bi'
+import {  BiSolidVideoRecording } from 'react-icons/bi'
 import { easeInOut, motion } from 'framer-motion'
 import  js from '../assets/01.png'
-import  wts from '../assets/02.png'
-import bs from '../assets/bs.png'
-import  trailer from '../assets/trailer.mp4'
+import  sms from '../assets/sms1.png'
+import umnexa from '../assets/umnexa.png'
 import  Ys from '../assets/Ys.jpg'
 import shoplite from '../assets/ShopLite.png'
 import { Link } from 'react-router-dom'
@@ -22,7 +21,7 @@ const projects = [
     description:
       "A full-stack sports e-commerce platform featuring authentication, cart management, and responsive UI.",
     thumbnail: js,
-    videoFile: "https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F1458162495955733%2F&show_text=false&width=560&t=0",
+    videoFile: "",
     url: "https://jansports-front.vercel.app/",
   },
 
@@ -31,26 +30,26 @@ const projects = [
     description:
       "Modern MERN e-commerce application with product management and seamless shopping experience.",
     thumbnail: shoplite,
-    videoFile: trailer,
+    videoFile: "",
     url: "https://shop-lite-ecommerce-website.vercel.app/",
   },
 
   {
-    title: "BlogSpot",
+    title: "School Management System",
     description:
-      "A complete blogging platform allowing users to create, edit, delete, and manage posts.",
-    thumbnail: bs,
-    videoFile: "/videos/blogspot.mp4",
-    url: "https://blogspot-live.vercel.app/",
+      "A complete LMS for education institute that presents digital version of institute, control all the activities from Results to attendance.",
+    thumbnail: sms,
+    videoFile: "",
+    url: "https://experts-science-school-college.vercel.app/",
   },
 
   {
-    title: "WacTech Solutions",
+    title: "UM-NEXA Complete Tech Solutions",
     description:
-      "Corporate website for a web development agency showcasing services, projects, and contact channels.",
-    thumbnail: wts,
-    videoFile: "/videos/wactech.mp4",
-    url: "https://waz-tech-solutions.vercel.app/",
+      "UM Nexa Tech is a professional software team helping businesses plan, design, build, and launch reliable digital products with clear communication from start to finish.",
+    thumbnail: umnexa,
+    videoFile: "",
+    url: "https://um-nexa.vercel.app/",
   },
 ];
     const skills = [
@@ -433,12 +432,6 @@ const projects = [
         ✕
       </button>
 
-      {/* <iframe width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true" 
-      src={selectedVideo}
-        controls muted
-        autoPlay
-        className="w-full rounded-2xl border border-gray-700 shadow-2xl"
-        ></iframe> */}
         <video src={selectedVideo}
         controls muted
         autoPlay
